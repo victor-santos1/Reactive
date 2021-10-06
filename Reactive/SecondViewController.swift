@@ -8,8 +8,6 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
-    var aluno: Aluno?
     
     override func viewDidLoad() {
         super.viewDidLoad()
