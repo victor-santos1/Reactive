@@ -11,11 +11,6 @@ import RxCocoa
 
 class WeatherViewModel {
         var text = Observable<String>.just("")
-    
-        var url: String {
-        let url = "https://api.openweathermap.org/data/2.5/weather?q=\(text) searchText)&appid=87cc5af3b2675ba6b83507c8f3e82d7e&lang=pt-br"
-        return url
-    }
         private let disposeBag = DisposeBag()
 
 }
