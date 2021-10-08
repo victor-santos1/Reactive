@@ -27,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		57089430270C7E7300827787 /* RxPlaygrounds.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = RxPlaygrounds.playground; path = ../../RxPlaygrounds.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		57089431270C8AA500827787 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		57089433270CE0F000827787 /* Clouds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clouds.swift; sourceTree = "<group>"; };
 		57089434270CE0F000827787 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		5738EE0027024A8300930536 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5738EE0827024DA000930536 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		576B39D8270B73C00098793D /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		57D7067827108A5D00595360 /* RxPlaygrounds.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxPlaygrounds.playground; sourceTree = SOURCE_ROOT; };
 		9015591AA32A42569154DB6A /* Pods-Reactive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reactive.release.xcconfig"; path = "Target Support Files/Pods-Reactive/Pods-Reactive.release.xcconfig"; sourceTree = "<group>"; };
 		A038206CA3396151503333E5 /* Pods-Reactive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reactive.debug.xcconfig"; path = "Target Support Files/Pods-Reactive/Pods-Reactive.debug.xcconfig"; sourceTree = "<group>"; };
 		F4190D58F0B1C65EFECF203F /* Pods_Reactive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reactive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +84,7 @@
 		5738EDF127024A8100930536 /* Reactive */ = {
 			isa = PBXGroup;
 			children = (
-				57089430270C7E7300827787 /* RxPlaygrounds.playground */,
+				57D7067827108A5D00595360 /* RxPlaygrounds.playground */,
 				576B39D7270B73A60098793D /* ViewModel */,
 				576B39D4270B728A0098793D /* Model  */,
 				5738EDF227024A8100930536 /* AppDelegate.swift */,
