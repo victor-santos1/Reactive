@@ -16,7 +16,6 @@
 		9CE7E5E41DE5A40A00C8BA5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE7E5E21DE5A40A00C8BA5A /* Main.storyboard */; };
 		9CE7E5E61DE5A40A00C8BA5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CE7E5E51DE5A40A00C8BA5A /* Assets.xcassets */; };
 		9CE7E5E91DE5A40A00C8BA5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE7E5E71DE5A40A00C8BA5A /* LaunchScreen.storyboard */; };
-		9CE7E5F11DE5A94600C8BA5A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9CE7E5F01DE5A94600C8BA5A /* Podfile */; };
 		D2FEE4F817582C35F80EA6D8 /* Pods_Combinestagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B4721BF5E5835475BB0EF3 /* Pods_Combinestagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		9CE7E5E51DE5A40A00C8BA5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CE7E5E81DE5A40A00C8BA5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CE7E5EA1DE5A40A00C8BA5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CE7E5F01DE5A94600C8BA5A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C21DCCD2B4EBD7F27361C30C /* Pods-Combinestagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Combinestagram.release.xcconfig"; path = "Target Support Files/Pods-Combinestagram/Pods-Combinestagram.release.xcconfig"; sourceTree = "<group>"; };
 		C5B4721BF5E5835475BB0EF3 /* Pods_Combinestagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Combinestagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5EE85A580600A689F1E9993 /* Pods-Combinestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Combinestagram.debug.xcconfig"; path = "Target Support Files/Pods-Combinestagram/Pods-Combinestagram.debug.xcconfig"; sourceTree = "<group>"; };
@@ -54,7 +52,6 @@
 		3E6A5EBD300807128F926FDC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9CE7E5F01DE5A94600C8BA5A /* Podfile */,
 				F5EE85A580600A689F1E9993 /* Pods-Combinestagram.debug.xcconfig */,
 				C21DCCD2B4EBD7F27361C30C /* Pods-Combinestagram.release.xcconfig */,
 			);
@@ -188,7 +185,6 @@
 			files = (
 				9CE7E5E91DE5A40A00C8BA5A /* LaunchScreen.storyboard in Resources */,
 				9CE7E5E61DE5A40A00C8BA5A /* Assets.xcassets in Resources */,
-				9CE7E5F11DE5A94600C8BA5A /* Podfile in Resources */,
 				9CE7E5E41DE5A40A00C8BA5A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
