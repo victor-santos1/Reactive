@@ -46,16 +46,29 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagens
+        
+        imagens //inscrito || ouvinte
             .subscribe(onNext: { [weak imagePreview] photos in
                 guard let preview = imagePreview else { return }
                 preview.image = photos.collage(size: preview.frame.size)
             }).disposed(by: bag)
         
+        imagens//inscrito || ouvinte
+            .subscribe(onNext: { [weak self] photos in
+                self?.updateUI(photos)
+            }).disposed(by: bag)
+        
+    }
+    
+    private func updateUI(_ photos: [UIImage]) {
+        buttonSave.isEnabled = photos.count > 0 && photos.count % 2 == 0
+        buttonClear.isEnabled = photos.count > 0
+        itemAdd.isEnabled = photos.count < 6
+        title = photos.count > 0 ? "\(photos.count) photos" : "Collage"
     }
     
     @IBAction func actionClear() {
-        
+        imagens.accept([])
     }
     
     @IBAction func actionSave() {
@@ -63,8 +76,15 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func actionAdd() {
-        let newImagens = imagens.value + [UIImage(named: "IMG_1907.jpg")!]
-        imagens.accept(newImagens)
+        let photosViewController = storyboard?.instantiateViewController(withIdentifier: "PhotosViewController") as! PhotosViewController
+        photosViewController.selectedPhotos
+            .subscribe(onNext: { [weak self] newImagens in
+                guard let images = self?.imagens else { return }
+                images.accept(images.value + [newImagens])
+            }, onDisposed: {
+                print("Completed photo selection")
+            }).disposed(by: bag)
+        navigationController?.pushViewController(photosViewController, animated: true)
     }
     
     func showMessage(_ title: String, description: String? = nil) {
