@@ -17,6 +17,7 @@
 		570E00F427111CF6003AA68C /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570E00F327111CF6003AA68C /* PhotoCell.swift */; };
 		570E00F927111D3C003AA68C /* UIImage+Collage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570E00F727111D3B003AA68C /* UIImage+Collage.swift */; };
 		570E00FA27111D3C003AA68C /* PhotoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570E00F827111D3C003AA68C /* PhotoWriter.swift */; };
+		5723B71E2719BC1400A38C4D /* Extension UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5723B71D2719BC1400A38C4D /* Extension UIViewController.swift */; };
 		A893B909110D02B2198329B9 /* Pods_Reative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD1A58258EB7939A763884C /* Pods_Reative.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		570E00F327111CF6003AA68C /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		570E00F727111D3B003AA68C /* UIImage+Collage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Collage.swift"; sourceTree = "<group>"; };
 		570E00F827111D3C003AA68C /* PhotoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoWriter.swift; sourceTree = "<group>"; };
+		5723B71D2719BC1400A38C4D /* Extension UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension UIViewController.swift"; sourceTree = "<group>"; };
 		8EB901A2A5ED1AA2D0893EC4 /* Pods-Reative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reative.release.xcconfig"; path = "Target Support Files/Pods-Reative/Pods-Reative.release.xcconfig"; sourceTree = "<group>"; };
 		DFD1A58258EB7939A763884C /* Pods_Reative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8D2E4943B31BFF638E567AC /* Pods-Reative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reative.debug.xcconfig"; path = "Target Support Files/Pods-Reative/Pods-Reative.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				570E00FC27111E1F003AA68C /* Assets */,
 				570E00DE2711188A003AA68C /* SceneDelegate.swift */,
 				570E00E02711188A003AA68C /* MainViewController.swift */,
+				5723B71D2719BC1400A38C4D /* Extension UIViewController.swift */,
 				570E00F127111CB2003AA68C /* PhotosViewController.swift */,
 				570E00F327111CF6003AA68C /* PhotoCell.swift */,
 			);
@@ -237,6 +240,7 @@
 			files = (
 				570E00FA27111D3C003AA68C /* PhotoWriter.swift in Sources */,
 				570E00E12711188A003AA68C /* MainViewController.swift in Sources */,
+				5723B71E2719BC1400A38C4D /* Extension UIViewController.swift in Sources */,
 				570E00F927111D3C003AA68C /* UIImage+Collage.swift in Sources */,
 				570E00F427111CF6003AA68C /* PhotoCell.swift in Sources */,
 				570E00F227111CB2003AA68C /* PhotosViewController.swift in Sources */,

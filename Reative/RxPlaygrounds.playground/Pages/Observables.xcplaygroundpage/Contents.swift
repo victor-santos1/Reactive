@@ -122,7 +122,7 @@ example(of: "deferred") {
     
     let disposeBag = DisposeBag()
     var flip = false
-    var factory: Observable<Int> = Observable.deferred {
+    let factory: Observable<Int> = Observable.deferred {
         
         flip.toggle()
         if flip {

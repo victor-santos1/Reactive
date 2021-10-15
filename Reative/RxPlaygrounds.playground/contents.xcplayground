@@ -7,6 +7,7 @@
         <page name='ReplaySubject'/>
         <page name='PublishRelay'/>
         <page name='BehaviorRelay'/>
-        <page name='Challenges Book'/>
+        <page name='Challenges Book SINGLE'/>
+        <page name='Filtering Operators'/>
     </pages>
 </playground>
