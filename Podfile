@@ -6,7 +6,8 @@ target 'Reative' do
   use_frameworks!
 
   # Pods for Reative
-    pod 'RxSwift', '~> 5.1.1'
-    pod 'RxRelay', '~> 5.1.1'
+    pod 'RxSwift', '5.1.1'
+    pod 'RxRelay', '5.1.1'
+    pod 'RxCocoa', '5.1.1'
 
 end

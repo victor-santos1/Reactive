@@ -6,7 +6,7 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-protocol ZipSinkProtocol : AnyObject
+protocol ZipSinkProtocol : class
 {
     func next(_ index: Int)
     func fail(_ error: Swift.Error)

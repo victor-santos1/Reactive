@@ -33,3 +33,6 @@ relay.accept("2")
 
 //valor puro
 print(relay.value)
+
+
+

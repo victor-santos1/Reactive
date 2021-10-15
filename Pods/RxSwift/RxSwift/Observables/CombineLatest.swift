@@ -6,7 +6,7 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-protocol CombineLatestProtocol : AnyObject {
+protocol CombineLatestProtocol : class {
     func next(_ index: Int)
     func fail(_ error: Swift.Error)
     func done(_ index: Int)

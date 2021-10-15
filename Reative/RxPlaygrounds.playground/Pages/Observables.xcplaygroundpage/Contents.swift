@@ -150,5 +150,3 @@ numero.subscribe(
 
 
 str.on(.next("Algo"))
-
-
