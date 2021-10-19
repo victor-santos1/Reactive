@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 
 let strikes = PublishSubject<String>()
-let elements = PublishSubject<String>()
+var elements = PublishSubject<String>()
 
 let bag = DisposeBag()
  
@@ -56,3 +56,58 @@ example(of: "elementAt") {
     elements.onNext("B") // 1
     elements.onNext("C") // 2
 }
+
+example(of: "filter") {
+ 
+    Observable.of(1, 2, 3, 4, 5, 6)
+        .filter( { $0.isMultiple(of: 2) })
+        .subscribe(onNext: {
+            print($0)
+        })
+        .disposed(by: bag)
+}
+
+example(of: "skip") {
+    
+    Observable.of("A", "B", "C", "D", "E", "F")
+        .skip(1) // -> pula a quantidade de numeros. Eventos começam a partir do numero atribuido. print (B, C...)
+        .subscribe(onNext: {
+            print($0)
+        })
+        .disposed(by: bag)
+}
+
+example(of: "skipWhile") {
+    
+    Observable.of(2, 2, 3, 4, 4, 5, 6)  // (ignora) skip até que algo seja != ao predicado...
+        .skipWhile({ $0.isMultiple(of: 2) }) // -> apenas skip até que algo não seja ignorado e, a partir desse ponto, deixa todo o resto passar.
+        .subscribe(onNext: {
+            print($0)
+        })
+        .disposed(by: bag)
+}
+
+example(of: "skipUntil") {
+    let subject = PublishSubject<String>()
+    let trigger = PublishSubject<String>()
+    
+    subject
+        .skipUntil(trigger)
+        .subscribe(onNext: {
+            print($0)
+        })
+        .disposed(by: bag)
+    
+    trigger.onNext("x")
+   // trigger.onNext("x")
+   // trigger.onNext("x")
+   // trigger.onNext("x")
+    subject.onNext("A")
+    subject.onNext("B")
+    subject.onNext("C")
+    subject.onNext("D")
+    subject.onNext("E")
+    
+    trigger.onNext("x")
+}
+
