@@ -47,18 +47,22 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagens.share()
-        imagens //inscrito || ouvinte
+        let imageShared = imagens.share()
+        
+        imageShared
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak imagePreview] photos in
                 guard let preview = imagePreview else { return }
                 preview.image = photos.collage(size: preview.frame.size)
-            }).disposed(by: bag)
+                
+            })
+            .disposed(by: bag)
         
-        imagens//inscrito || ouvinte
+        imageShared
             .subscribe(onNext: { [weak self] photos in
                 self?.updateUI(photos)
-            }).disposed(by: bag)
-        
+            })
+            .disposed(by: bag)
     }
     
     private func updateUI(_ photos: [UIImage]) {
@@ -71,6 +75,7 @@ class MainViewController: UIViewController {
     @IBAction func actionClear() {
         imagens.accept([])
         imageCache = []
+        updateNavigationIcon()
     }
     
     @IBAction func actionSave() {
@@ -82,42 +87,33 @@ class MainViewController: UIViewController {
                     self?.actionClear()
                 }, onError: { [weak self] error in
                     self?.showMessage("Error", description: error.localizedDescription)
-                }).disposed(by: bag)
+                })
+            .disposed(by: bag)
     }
     
     @IBAction func actionAdd() {
         let photosViewController = storyboard?.instantiateViewController(withIdentifier: "PhotosViewController") as! PhotosViewController
-        let newPhotos = photosViewController.selectedPhotos
-            .share()
+        let newPhotos = photosViewController.selectedPhotos.share()
         
         newPhotos
             .takeWhile { [weak self] image in
                 let count = self?.imagens.value.count ?? 0
                 return count < 6
             }
-            .filter { newImage in // -> Todas as imagens que forem na orientação retrato serão descartadas
-                return newImage.size.width > newImage.size.height
-            }
             .filter { [weak self] newImage in
                 let len = newImage.pngData()?.count ?? 0
                 guard self?.imageCache.contains(len) == false else { return false }
                 self?.imageCache.append(len)
-                return true
-            }
+                return true && newImage.size.width > newImage.size.height // -> o filter e a expressão precisam ser true
+            }                                                            // Todas as imagens que forem na orientação retrato retorna false
             .subscribe(onNext: { [weak self] newImagens in
                 guard let images = self?.imagens else { return }
                 images.accept(images.value + [newImagens])
-            }, onDisposed: {
-                print("Completed photo selection")
-            }).disposed(by: bag)
-        
-        newPhotos
-            .ignoreElements() // -> ignora todos os outros estados. Só emitindo ou chamando função no evento Completed
-            .subscribe(onCompleted: { [weak self] in
+            },
+            onCompleted: { [weak self] in
                 self?.updateNavigationIcon()
             })
             .disposed(by: bag)
-        
         navigationController?.pushViewController(photosViewController, animated: true)
     }
     
@@ -131,7 +127,6 @@ class MainViewController: UIViewController {
         let icon = imagePreview.image?
             .scaled(CGSize(width: 22, height: 22))
             .withRenderingMode(.alwaysOriginal)
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: icon,
                                                            style: .done,
                                                            target: nil,
