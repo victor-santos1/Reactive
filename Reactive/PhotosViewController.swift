@@ -37,12 +37,12 @@ import RxSwift
 class PhotosViewController: UICollectionViewController {
     
     // MARK: public properties
-    
-    // MARK: private properties
-    private let selectedPhotosSubject = PublishSubject<UIImage>()
     var selectedPhotos: Observable<UIImage> {
         return selectedPhotosSubject.asObserver()
     }
+    // MARK: private properties
+    private let selectedPhotosSubject = PublishSubject<UIImage>()
+    private let bag = DisposeBag()
     
     private lazy var photos = PhotosViewController.loadPhotos()
     private lazy var imageManager = PHCachingImageManager()
@@ -62,7 +62,27 @@ class PhotosViewController: UICollectionViewController {
     // MARK: View Controller
     override func viewDidLoad() {
         super.viewDidLoad()
+        let authorized = PHPhotoLibrary.authorized.share()
+        authorized
+            .skipWhile { !$0 } // para ignorar todos os elementos falsos. Equanto falso o codigo não prossegue
+            .take(1) //Sempre que um verdadeiro passar pelo filtro, você pega aquele elemento.
+            .subscribe(onNext: { [weak self] _ in
+                self?.photos = PhotosViewController.loadPhotos()
+                DispatchQueue.main.async {
+                    self?.collectionView.reloadData()
+                }
+            })
+            .disposed(by: bag)
         
+        authorized
+            .distinctUntilChanged()
+            .takeLast(1)
+            .filter { !$0 }
+            .subscribe(onNext: { [weak self] _ in
+                guard let errorMessage = self?.errorMessage else { return }
+                DispatchQueue.main.async(execute: errorMessage)
+            })
+            .disposed(by: bag)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -104,5 +124,15 @@ class PhotosViewController: UICollectionViewController {
                 self?.selectedPhotosSubject.onNext(image)
             }
         })
+    }
+    
+    private func errorMessage() {
+        alert("No access to Camera Roll",
+        text: "You can grant access to Reactive from the Settings app")
+        .subscribe(onCompleted: { [weak self] in
+          self?.dismiss(animated: true, completion: nil)
+          _ = self?.navigationController?.popViewController(animated: true)
+        })
+        .disposed(by: bag)
     }
 }
