@@ -9,5 +9,6 @@
         <page name='BehaviorRelay'/>
         <page name='Challenges Book SINGLE'/>
         <page name='Filtering Operators'/>
+        <page name='Transforming Operators'/>
     </pages>
 </playground>
